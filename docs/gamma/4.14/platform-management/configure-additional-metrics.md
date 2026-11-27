@@ -8,7 +8,7 @@ description: Label, describe, and hide the additional metrics of an environment,
 
 Additional metrics are values that a policy or the gateway attaches to a request. They show in the log detail as soon as requests carry them.
 
-The **Metrics configuration** page lists the additional metrics of an environment. For each one, it sets the label, the description, and the unit that the Observability pages of the environment show, and whether their filter, column, and widget-editor lists offer it.
+The **Metrics configuration** page lists the additional metrics of an environment. For each one, it sets a label, a description, and a unit, and whether the filter, column, and widget-editor lists of the Observability pages offer it.
 
 ## Open the Metrics configuration page
 
@@ -22,7 +22,7 @@ To open the page, complete the following steps:
 <!-- TODO: Screenshot of the Metrics configuration page, with built-in, declared, and discovered metrics in the table -->
 <figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-metrics-configuration.png" alt=""><figcaption><p>The Metrics configuration page</p></figcaption></figure>
 
-The page appears only for a role that can read the environment's settings. Without permission to update them, the table is read-only, and the **Information** panel above it reads **You do not have permission to modify these settings. Contact your administrator for access.**
+The page appears only for a role that can read the environment's settings. Without permission to update them, the table is read-only. Opening the **Information** panel above it shows **You do not have permission to modify these settings. Contact your administrator for access.**
 
 ## Read the list
 
@@ -32,12 +32,14 @@ The **Additional metrics** table has one row per metric:
 | ------ | ------------- |
 | **Metric** | The label, with the key below it. |
 | **Type** | The type of the values, such as **number** or **keyword**. **log detail only** follows the type of a metric that only the log detail shows, such as a **string** or **json** value. |
-| **Origin** | **Built-in** for a metric that comes with Gravitee, **Declared** for a metric that has a record in this environment, and **Discovered** for a metric that requests of the last 30 days carried. |
-| **Last seen** | When a request last carried the metric. **Not in 30 days** when no request of the last 30 days did. |
+| **Origin** | **Built-in** for a metric that comes with Gravitee, followed by its API type when it belongs to one, **Declared** for a metric that has a record in this environment, and **Discovered** for a metric that requests of the last 30 days carried. |
+| **Last seen** | When a request of the last 30 days last carried the metric. A declared or discovered metric without such a date reads **Not in 30 days**. |
 | **Unit** | The unit of the values, when the metric has one. |
 | **Exposed** | **Exposed**, or **Hidden** for a metric that the filter, column, and widget-editor lists don't offer. |
 
-Discovered metrics and **Last seen** times come from the environment's traffic, so they show only for a user who can read that traffic, such as the logs of one of its APIs.
+Discovered metrics and **Last seen** times come from the environment's traffic, so they show only for a user who can read that traffic, such as the logs of one of its APIs. For other users, every declared metric reads **Not in 30 days**.
+
+The scan behind the discovered metrics runs from time to time, and the line above the table says when it last ran. It keeps the 200 most recently seen metrics.
 
 To narrow the table, type in **Search by label or key**, or pick values under **Origin**, **Type**, and **Exposed**. **Clear filters** removes them.
 
@@ -72,7 +74,7 @@ The **Type** list offers the following types:
 | `string` | Free text, shown in the log detail only |
 | `json` | Structured values, shown in the log detail only |
 
-The **Unit** list offers **No unit**, **Custom suffix**, and the following units, each followed in the list by its suffix when it has one:
+The **Unit** list offers **No unit**, **Custom suffix**, and the following units. The list shows each unit with its suffix, unless the suffix repeats the name.
 
 | Unit | Suffix |
 | ---- | ------ |
@@ -85,7 +87,7 @@ The **Unit** list offers **No unit**, **Custom suffix**, and the following units
 | **Gigabytes** | `GB` |
 | **Count** | None |
 | **Count per second** | `/s` |
-| **Tokens** | None |
+| **Tokens** | `tokens` |
 | **Currency** | None |
 
 The form refuses a value that breaks one of the following rules, and shows the message under the field:
@@ -103,7 +105,7 @@ The form refuses a value that breaks one of the following rules, and shows the m
 
 ## Edit a metric
 
-You can edit a declared or a discovered metric. To edit a metric, complete the following steps:
+You can edit a declared or a discovered metric, except one whose key, after its type, starts with `custom_` or `custom.`, which is kept for custom metrics. To edit a metric, complete the following steps:
 
 1. Click its row.
 2. Change the **Label**, the **Description**, the **Unit**, or **Exposed**. The key and the type can't change.
@@ -129,7 +131,7 @@ Deleting the record of a declared metric removes its label, its description, its
 
 ## See the metrics from API Management and Agent Management
 
-API Management and Agent Management show the same table, read-only, on the **Settings** page of their **Observability** group. Each module leaves out the metrics that belong only to API types it doesn't manage. To change a metric, come back to the **Metrics configuration** page.
+API Management and Agent Management list the same metrics, read-only, on the **Settings** page of their **Observability** group. Each module leaves out the metrics that belong only to API types it doesn't manage. To change a metric, come back to the **Metrics configuration** page.
 
 ## Verification
 

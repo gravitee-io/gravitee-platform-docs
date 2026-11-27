@@ -35,9 +35,13 @@ From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API
 
 From 4.14.0, **COUNT** on the six token and cost metrics of LLM traffic gives the number of requests that carry the value, and **SUM** gives the total. In 4.13, **COUNT** gave the total. A custom dashboard widget that reads **COUNT** on one of these metrics shows a number of requests after the upgrade, so select **SUM** under **Measure** to keep the total. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#count-on-the-llm-token-and-cost-metrics-counts-requests).
 
-#### **COUNT on the HTTP errors metric counts error requests only**
+#### **AVG, MIN, MAX, and the percentiles leave out the requests without a value**
 
-From 4.14.0, **COUNT** on the HTTP errors metric counts the requests whose status is from 400 to 599. In 4.13, it counted every request. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#count-on-the-http-errors-metric-counts-error-requests-only).
+From 4.14.0, **AVG**, **MIN**, **MAX**, and the percentiles of a built-in metric leave out the requests that don't carry its value. In 4.13, they counted those requests as `0`. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#avg-min-max-and-the-percentiles-leave-out-the-requests-without-a-value).
+
+#### **HTTP Errors and Edge Heartbeat Count now count only their own events**
+
+From 4.14.0, **COUNT** on **HTTP Errors** counts the requests whose status is from 400 to 599, and **COUNT** on **Edge Heartbeat Count** counts heartbeat events only. In 4.13, they counted every request and every Edge Management event. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#http-errors-and-edge-heartbeat-count-now-count-only-their-own-events).
 
 ## New features
 
