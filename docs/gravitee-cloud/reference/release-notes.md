@@ -15,7 +15,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 **Manage gateways in the Gamma console**
 
-**Account Management** in the Gamma console has a **Gateways** page. A **Primary Owner** or an **Account Owner** deploys Gravitee Hosted Gateways, adds Hybrid Gateways and copies their cloud token and license key, renames gateways, changes the tags of a Gravitee Hosted Gateway, and deletes gateways there.
+**Account Management** in the Gamma console has a **Gateways** page. On a Gravitee Cloud customer account, a **Primary Owner** or an **Account Owner** deploys Gravitee Hosted Gateways, adds Hybrid Gateways and copies their cloud token and license key, renames gateways, changes the tags of a Gravitee Hosted Gateway, and deletes gateways there.
 
 For more information, see [Manage gateways in the Gamma console](../guides/manage-gateways-in-the-gamma-console.md).
 
