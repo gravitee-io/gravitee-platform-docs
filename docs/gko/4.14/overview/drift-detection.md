@@ -66,6 +66,8 @@ Drift detection applies to the following resources:
 | `AMIdentityProvider` | Supported                                                        |
 | `AMCertificate`     | Supported                                                         |
 | `AMReporter`        | Supported                                                         |
+| `AMApplication`     | Supported                                                         |
+| `AMClientSecret`    | Supported                                                         |
 | `AuthzPdp`          | Supported                                                         |
 | `AuthzSchema`       | Supported                                                         |
 | `AuthzEntity`       | Supported                                                         |
@@ -93,9 +95,11 @@ A change made in APIM or Access Management to the following fields is never repo
 | `McpProxy` | The credentials of the upstream authentication: `apiKey.apiKey`, `bearer.token`, `basic.password`, and `oauth2.clientSecret`, under `spec.proxy.upstreamAuth` and under the `auth` of each `spec.studio.upstreamAuth` entry. The `oauth2Generic.clientSecret` of each `spec.identityProviders` entry |
 | `CatalogMcpServer` | `spec.connection.auth.header.value` and `spec.connection.auth.oauth2.clientSecret` |
 | `Dictionary` | The `value` of each `spec.manual.encryptedProperties` entry while APIM stores the key encrypted |
-| `AMSecurityDomain` | `spec.dataPlaneId` when your resource doesn't set it. An algorithm that Access Management adds to `spec.oidc.workloadIdentitySettings.defaultAllowedAlgorithms` |
+| `AMSecurityDomain` | `spec.dataPlaneId` when your resource doesn't set it. An algorithm that Access Management adds to `spec.oidc.workloadIdentitySettings.defaultAllowedAlgorithms`. The following OpenID Connect settings when your resource doesn't set them: `spec.oidc`, `spec.oidc.redirectUriStrictMatching`, `spec.oidc.clientRegistrationSettings` and each of its settings, the `enabled`, `authReqExpiry`, `tokenReqInterval`, and `bindingMessageLength` of `spec.oidc.cibaSettings`, the `enablePlainFapi` and `enableFapiBrazil` of `spec.oidc.securityProfileSettings`, and the `enabled`, `maxJwtLifetimeSeconds`, and `clockSkewSeconds` of `spec.oidc.workloadIdentitySettings` |
 | `AMIdentityProvider` and `AMCertificate` | `spec.name`, `spec.type`, and `spec.configuration` when `spec.system` is `true` |
 | `AMReporter` | `spec.name`, `spec.type`, `spec.configuration`, `spec.attributeMappings`, and `spec.attributeMappingEventTypes` when `spec.system` is `true` |
+| `AMApplication` | `spec.clientId` and `spec.settings` when your resource doesn't set them. The `account`, `advanced`, `cookieSettings`, `login`, and `oauth` blocks of `spec.settings`, and the `grantTypes`, `responseTypes`, `tokenEndpointAuthMethod`, `forcePKCE`, `forceS256CodeChallengeMethod`, and `tokenExchangeOAuthSettings` of `spec.settings.oauth`, when your resource doesn't set them |
+| `AMClientSecret` | The value in the Secret that `spec.secretRef` names, which Access Management never returns |
 
 ## Turn on drift detection
 

@@ -23,7 +23,7 @@ When you apply the resource, GKO checks it with AM before Kubernetes accepts it.
 See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 {% hint style="warning" %}
-Deleting an `AMSecurityDomain` resource deletes the domain in AM, with its identity providers, certificates, and reporters, and deletes the `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources of the domain from Kubernetes. There's nothing left to delete with `kubectl`. A domain already deleted in AM doesn't block the deletion of the resource.
+Deleting an `AMSecurityDomain` resource deletes the domain in AM, with its identity providers, certificates, reporters, and applications. It also deletes the `AMIdentityProvider`, `AMCertificate`, `AMReporter`, and `AMApplication` resources of the domain from Kubernetes, and the `AMClientSecret` resources of those applications. There's nothing left to delete with `kubectl`. A domain already deleted in AM doesn't block the deletion of the resource.
 {% endhint %}
 
 The `dataPlaneId` field is optional when the domain is created, and can't change after that. For how AM picks a data plane when the field isn't set, see [Automation API](https://documentation.gravitee.io/am/guides/automation-api) in the Access Management documentation. The fields of the resource accept templates. See [Templating](../../guides/templating.md).
