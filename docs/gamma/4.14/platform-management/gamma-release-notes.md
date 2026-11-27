@@ -175,6 +175,8 @@ API Management adds the following in 4.14:
 * **Import from Swagger** adds the paths of an OpenAPI page of the API proxy's documentation in the next-gen Developer Portal. **Replace existing path mappings** replaces the list with them.
 * The import of an OpenAPI specification gains a **Create the path mapping for analytics** option. On an update, it replaces the existing path mappings. Turned off, an update keeps them.
 * The path mappings apply the next time you deploy the API proxy.
+* The dashboard of an API proxy adds **Top 5 Path mappings**, which counts the requests that matched a path mapping and passed security. **Top 5 Paths** now ranks the paths of the requests, after the API's context path.
+* A new **Path mapping** filter narrows a dashboard to the requests of the path mappings you pick.
 * See [Configure path mappings](../api-management/build/configure-your-api-proxy/configure-path-mappings.md).
 
 #### Resources on API Products
