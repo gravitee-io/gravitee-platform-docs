@@ -244,7 +244,7 @@
   * [Create your first MCP server](agent-management/get-started/create-your-first-mcp-server.md)
   * [Create your first LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
-  * [Monitor agents, spend, and compliance on the Overview page](agent-management/observe/monitor-agents-spend-and-compliance.md)
+  * [Open Quick Start](agent-management/observe/monitor-agents-spend-and-compliance.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
   * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)

@@ -11,7 +11,7 @@
   * [Create your first MCP server](get-started/create-your-first-mcp-server.md)
   * [Create your first LLM Proxy](get-started/create-your-llm-proxy.md)
   * [Configure your Access Management instance](build/configure-your-access-management-instance.md)
-  * [Monitor agents, spend, and compliance on the Overview page](observe/monitor-agents-spend-and-compliance.md)
+  * [Open Quick Start](observe/monitor-agents-spend-and-compliance.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
 * [Catalog](import/README.md)
   * [Integrations](import/integrations/README.md)

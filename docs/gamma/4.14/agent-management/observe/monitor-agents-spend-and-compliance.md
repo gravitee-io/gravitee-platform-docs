@@ -1,73 +1,55 @@
 ---
-description: >-
-  The Overview page is the Agent Management landing page. Read what its Agents,
-  Spend through the gateway, and Compliance sections report across the
-  environment.
+description: Quick Start is the page Agent Management opens on. It links to the Connect, Catalog, and Secure pages the user can open.
 ---
 
-# Monitor agents, spend, and compliance on the Overview page
+# Open Quick Start
 
-**Overview** is the page Agent Management opens on. It reports across every agent and proxy in the environment, so what the environment costs and where it's failing are visible without opening anything.
+**Quick Start** is the page Agent Management opens on. The heading reads **AI Agent Management**. The line under it reads **Discover models and MCP servers, secure them behind the AI Gateway, then build agents from your catalog.**
 
-This is a different surface from the **Overview** page of a single proxy, which reports on that one proxy over a fixed 24 hours. See [Monitor proxy and agent activity](monitor-proxy-activity.md) for that page.
+The page is a set of links into **Connect**, **Import**, and **Secure**. Cost is read on [Dashboards](dashboards/README.md). An agent and a proxy each have their own **Overview**.
 
-## Open the Overview page
+## Open Quick Start
 
-1. In the Gamma console, open **Agent Management**. The module opens on **Overview**.
-2. To return to it from anywhere in the module, find the **General** group in the sidebar and select **Overview**.
+1. In the Gamma console, open **Agent Management**. The module opens on **Quick Start**.
+2. To return to it, find the **General** group in the sidebar and select **Quick Start**.
 
-The line beside the page title reports when the figures were last updated. Select **Refresh** to read them again.
+## What the page links to
 
-## What the page reports
+The page has three sections: **Connect**, **Import**, and **Secure**. Each card uses the same name as the sidebar entry it opens. A card is left out when that user cannot open the page. A section with no cards is left out.
 
-The page carries three sections, each covering the whole environment and each linking out to the pages behind it.
+### Connect
 
-### Agents
+| Card | Where it goes |
+| --- | --- |
+| **Agent Discovery** | Connect your agent platforms and keep discovered agents in sync with the catalog. |
+| **Providers** | Connect to an AI service with a stored credential and import the models it exposes. |
 
-**Agents** counts the agents in the catalog, as of now.
+### Import
 
-When every agent is fronted by a proxy that's deployed and started, the section reads that they all run through the gateway. Otherwise it breaks out what's wrong:
+The cards open pages in the **Catalog** group of the sidebar.
 
-* Agents that no proxy fronts are reported as bypassing the gateway, with the note that Gravitee can't rate-limit, hold, or stop their calls. **See the agents** opens the catalog filtered to them.
-* Agents that missed a performance target are listed with a link to those agents.
-* Agents stopped in Gravitee are listed with a link to them.
+| Card | Where it goes |
+| --- | --- |
+| **AI Models** | Register and curate the AI models reused across the platform. |
+| **MCP Servers** | Centralize MCP servers, whether added manually or imported from registries. |
+| **Prompts** | Browse reusable prompt templates exposed by your servers. |
+| **MCP Resources** | Expose read-only resources from servers and curated bundles. |
+| **Tools** | Browse MCP tools and custom tools generated from existing APIs. |
+| **Knowledge & Data** | Register knowledge bases and retrieval sources for grounded answers. |
+| **Skills** | Compose reusable skills from prompts, tools, and knowledge. |
+| **Agents** | Catalog A2A-compatible agents for discovery and reuse. |
 
-**Explore all agents** opens the full catalog.
+### Secure
 
-### Spend through the gateway
+| Card | Where it goes |
+| --- | --- |
+| **Guardrails** | Reusable guardrail policy sequences that monitor, block and redact AI traffic on your proxies. |
+| **LLM Proxies** | Route and govern LLM traffic through the AI Gateway with policies and observability. |
+| **MCP Proxies** | Expose MCP servers through the AI Gateway with authentication and policy enforcement. |
+| **A2A Proxies** | Secure agent-to-agent traffic behind the AI Gateway with policies and observability. |
 
-**Spend through the gateway** reports cost in USD over a window you choose. Select **7 d**, **30 d**, or **90 d**. The default is **30 d**.
+## Next steps
 
-Switching the window keeps the figures already on screen while the new ones load, so the section doesn't fall back to a placeholder.
-
-**Explore in Observability** opens the dashboards over the same time range.
-
-### Compliance
-
-**Compliance** reports how many agents fail at least one framework, as of now. When nothing has been assessed yet, the section says so instead of reporting a count.
-
-Below the count, each active framework and ruleset carries its own verdict, one of **Pass**, **Fail**, or **Not assessed**.
-
-**Open Compliance** opens the Compliance page.
-
-## Quick links
-
-Below the three sections, the page offers shortcuts to the actions an operator reaches for most:
-
-* **Add an agent**
-* **Connect an integration**
-* **Set up an LLM proxy**
-* **Switch on a compliance framework**
-* **Open Observability dashboards**
-
-## When the environment has no agents
-
-With no agents in the catalog, the three sections are replaced by a **Set up this page** panel that walks through the steps that populate it.
-
-**Spend through the gateway** still appears once the gateway has recorded spend, because an LLM Proxy produces cost data before any agent is registered.
-
-## When a section can't load
-
-A section that fails to load reports its own error and offers a retry, and the rest of the page keeps working.
-
-When all three fail together, the page replaces them with a single message. It reads **The Overview couldn't be loaded** when the browser is online, and **You're offline** when it isn't. Select **Details** to see what each section reported, and **Try again** to retry all three. The line beside the page title then reports when the last attempt failed rather than when the figures were updated.
+* [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md). Configure an LLM Proxy and send a test prompt.
+* [Create your first MCP server](../get-started/create-your-first-mcp-server.md). Put an MCP Proxy in front of an upstream MCP server.
+* [Dashboards](dashboards/README.md). Read AI traffic, cost, and tool usage.
