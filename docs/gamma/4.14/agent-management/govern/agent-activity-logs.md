@@ -67,6 +67,6 @@ The call labels are what the gateway recorded: **Inbound:** followed by the path
 
 ## Next steps
 
-* [Require human approval for MCP tool calls](require-human-approval-for-mcp-tool-calls.md). Take the decision a request is waiting for, and read the decision history.
+* [Human In the Lead](../human-in-the-lead/README.md). Take the decision a request is waiting for, and read the decision history.
 * [Guard agent actions with Guardian Agents](guard-agent-actions-with-guardian-agents.md). Add the Guardian whose verdicts appear here.
 * [Read what an agent cost](../cost-and-value/read-what-an-agent-cost.md). Price the requests this page lists.

@@ -201,3 +201,4 @@ redirects:
  event-stream-management/manage/kafka-explorer/limitations-and-considerations: event-stream-management/kafka-infrastructure/kafka-explorer/limitations-and-considerations.md
  event-stream-management/manage/kafka-explorer/manage-kafka-explorer-connections: event-stream-management/kafka-infrastructure/kafka-explorer/manage-kafka-explorer-connections.md
  event-stream-management/manage/register-your-kafka-clusters: event-stream-management/kafka-infrastructure/clusters/register-your-kafka-clusters.md
+ agent-management/govern/require-human-approval-for-mcp-tool-calls: agent-management/govern/require-human-approval-for-mcp-tool-calls.md

@@ -10,7 +10,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## Highlights
 
-* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
 * **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, configure the resources of API Products, and secure API Products with OAuth2 plans.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
@@ -45,6 +45,7 @@ Agent Management adds the following in 4.14:
 * **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
 * **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
 * **Catalog**: the Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
+* **Human In the Lead**: approval rules hold the tool calls of MCP Proxies and MCP Studios until a person approves or rejects them, with an inbox, notifications, and a decision history.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -111,6 +112,16 @@ Agent Management adds the following in 4.14:
 * The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and an A2A Proxy that you create starts with it on.
 * On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method other than `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
 * See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
+
+#### Human In the Lead
+
+* A new **Human In the Lead** group in the Agent Management sidebar holds the **Inbox**, **Rules**, **Notifications**, and **History** pages. It requires a license that includes Human In the Lead.
+* An approval rule names the tool calls that wait for a person: catalog tools or a name pattern, narrowed by argument conditions. It also names the users and groups who decide, and how long they have. A call that nobody decides in time is denied.
+* The **Human approval** card on the **Overview** page of an MCP Proxy or MCP Studio turns human approval on for that proxy.
+* From the **Inbox**, a call is approved for that call only or for a set time, or rejected with a reason that's returned to the agent.
+* Notifications send approval notices by email or webhook, with optional reminders. Their email templates are listed under **Human in the lead** on the **Templates** page of Platform Management.
+* The **History** page lists past decisions and what became of each call, and exports them as CSV or JSON files.
+* See [Human In the Lead](../agent-management/human-in-the-lead/README.md).
 
 ### API Management
 
