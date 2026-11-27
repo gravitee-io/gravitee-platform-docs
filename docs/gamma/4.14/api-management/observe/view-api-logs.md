@@ -89,6 +89,31 @@ Leave **Min** or **Max** empty for an open range. The range shows as one filter,
 
 <figure><img src="../.gitbook/assets/gamma-apim-logs-between-range.png" alt="The Add filter form of the Logs page with Status Code under Filter by, Between under Choose operator, 400 in Min, 499 in Max, and the hint Leave one side empty for an open range"><figcaption><p>A range on the Status Code filter</p></figcaption></figure>
 
+## Read additional metrics
+
+Additional metrics are values that a policy or the gateway attaches to a request. Their labels, units, and visibility are set on the **Metrics configuration** page of Platform Management. See [Configure additional metrics](../../platform-management/configure-additional-metrics.md).
+
+### In the log detail
+
+The **Additional metrics** section of a log's detail lists the additional metrics of the request, in the order of their labels, with their number on the section header. The section is closed by default, and doesn't show for a request that carries none. A metric that the detail already shows elsewhere, such as the MCP method, isn't repeated.
+
+Every row has a copy button. A row whose metric has a filter also has a **Filter** button, which filters the logs on that value.
+
+### As columns
+
+To add an additional metric as a column of the table, complete the following steps:
+
+1. Click **View**.
+2. In **Toggle columns**, select the metric. The additional metrics are grouped under **All APIs**, the type of API they belong to, or **Other fields**.
+
+The column header shows the label of the metric, and the key when you point at it. A metric hidden on the **Metrics configuration** page isn't offered.
+
+### As filters
+
+**Filter by** lists the additional metrics with the other properties, grouped in the same way. A text value offers suggestions, a number offers **=**, **≥**, **≤**, and **Between**, and a true or false value offers `true` and `false`.
+
+To filter on a metric that **Filter by** doesn't list, type its key, starting with its type, such as `long_failover_count`. Then select the option that starts with **Use**.
+
 ## Verification
 
 To verify the filters are working as expected, follow these steps:

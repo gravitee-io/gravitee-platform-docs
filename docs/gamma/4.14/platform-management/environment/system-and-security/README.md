@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: The System & Security group of the Environment section holds primary owner mode, Access Management, API review, gateways, alerts, notifications, API health check, SMTP, CORS, API logging, plan types, client registration, and audit.
+description: The System & Security group of the Environment section holds primary owner mode, Access Management, API review, gateways, alerts, notifications, API health check, SMTP, CORS, API logging, metrics configuration, plan types, client registration, and audit.
 ---
 
 # System & Security
 
-The **System & Security** group of the **Environment** section holds the **Primary Owner Mode**, **Access Management**, **API Review**, **Gateways**, **Alerts**, **Notifications**, and **API Health Check** pages. It also holds the **SMTP**, **CORS**, **API Logging**, **Security Plan Types**, **Client Registration**, and **Audit** pages.
+The **System & Security** group of the **Environment** section holds the **Primary Owner Mode**, **Access Management**, **API Review**, **Gateways**, **Alerts**, **Notifications**, and **API Health Check** pages. It also holds the **SMTP**, **CORS**, **API Logging**, **Metrics configuration**, **Security Plan Types**, **Client Registration**, and **Audit** pages.
 
 * [**Configure primary owner mode**](../../configure-primary-owner-mode.md). Decide who can be the primary owner of an API or API Product in the environment, and set the mode for APIs and for API Products.
 * [**Configure Access Management**](../../configure-access-management.md). Connect the Gamma console to a Gravitee Access Management instance, and recover from a lost connection or an expired token.
@@ -18,6 +18,7 @@ The **System & Security** group of the **Environment** section holds the **Prima
 * [**Configure the SMTP mail server for an environment**](../../configure-environment-smtp.md). Set the mail server the environment uses, and reset its branded senders to the organization's.
 * [**Configure CORS for the Developer Portal API**](../../configure-developer-portal-cors.md). Choose the origins, methods, and headers the environment's Developer Portal API accepts from a browser.
 * [**Configure API logging**](../../configure-api-logging.md). Cap full logging, audit API logging, show the end user in exported logs, and set the message sampling defaults and limits.
+* [**Configure additional metrics**](../../configure-additional-metrics.md). Label, describe, and hide the additional metrics of the environment, declare one before any request carries it, and delete its record.
 * [**Configure Security Plan Types**](../../configure-security-plan-types.md). Change which plan security types are available to the APIs of the environment.
 * [**Configure client registration**](../../configure-client-registration.md). Allow simple applications, turn on Dynamic Client Registration, choose the allowed application types, and add, edit, or delete a client registration provider.
 * [**Configure OpenTelemetry tracing and logs**](../../configure-opentelemetry-tracing-and-logs.md). Configure the Gateway to export trace data, the Management API to read it, and an OpenTelemetry Collector between them.
