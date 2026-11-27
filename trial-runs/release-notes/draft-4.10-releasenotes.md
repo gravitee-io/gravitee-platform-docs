@@ -4,7 +4,7 @@
 
 ## Highlights
 
-* Tech-preview Developer Portal supports Gravitee Markdown and customizable navigation.
+* The New Developer Portal supports Gravitee Markdown and customizable navigation.
 * AI Token Rate Limit policy enforces inbound and outbound token budgets for LLM Proxy APIs.
 * LLM Proxy exposes OpenAI-compatible endpoints and routes requests to providers like OpenAI, Gemini, and Bedrock.
 * Prompt guard rails can block unsafe prompts and require a Debian-based Gateway image with ONNX runtime support.
@@ -43,10 +43,6 @@
 * MCP Proxy APIs can be secured end-to-end with OAuth 2.0 by combining APIM OAuth2 plans with Gravitee Access Management as the authorization server; clients can use dynamic client registration and must present access tokens to access MCP tools and resources.
 
 #### **New Developer Portal enhancements**
-
-{% hint style="warning" %}
-The New Developer Portal is in tech preview.
-{% endhint %}
 
 **Content customization**
 

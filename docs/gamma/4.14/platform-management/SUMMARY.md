@@ -65,6 +65,7 @@
     * [Configure the SMTP mail server for an environment](configure-environment-smtp.md)
     * [Configure CORS for the Developer Portal API](configure-developer-portal-cors.md)
     * [Configure API logging](configure-api-logging.md)
+    * [Configure additional metrics](configure-additional-metrics.md)
     * [Configure Security Plan Types](configure-security-plan-types.md)
     * [Configure client registration](configure-client-registration.md)
     * [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md)

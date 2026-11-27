@@ -5,7 +5,7 @@ description: AuthZEN standardizes externalized authorization for Access Manageme
 # AuthZen
 
 {% hint style="danger" %}
-**Preview Feature:** The OpenFGA Authorization Engine is currently in technical preview. Note that features and APIs may change in future releases. **This functionality is not production-ready, but do contact Gravitee to get access and discover the feature.**\
+The OpenFGA Authorization Engine's features and APIs may change in future releases. **This functionality is not production-ready, but do contact Gravitee to get access and discover the feature.**\
 \
 **To get access, reach out to your Gravitee customer contact, or** [**book a demo**](https://www.gravitee.io/demo)**.**
 {% endhint %}

@@ -17,7 +17,7 @@ In Gravitee API Management version 4.4, we’ve released the following new produ
 * Federated API Management, with support for publishing and governing APIs from different API Gateways and Event brokers
 * More functionality for v4 APIs
 * A new Azure Service Bus endpoint for protocol mediation APIs
-* A new Developer Portal (Tech preview)
+* A new Developer Portal
 * And more!
 
 Keep reading to learn more about each new set of functionality.
@@ -156,9 +156,9 @@ Below is a table that outlines just how close we are to v2 and v4 feature parity
 
 <table data-header-hidden><thead><tr><th width="187">Functionality</th><th width="187">Supported in v2 proxy APIs</th><th>Supported in v4 proxy APIs</th><th>Supported in v4 message APIs</th></tr></thead><tbody><tr><td><strong>Functionality</strong></td><td><strong>Supported for v2 proxy APIs</strong></td><td><strong>Supported for v4 Proxy API</strong></td><td><p><strong>Supported for v4</strong></p><p><strong>Message API</strong></p></td></tr><tr><td>User Permissions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Properties</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Resources</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Notifications</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Categories</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Audit Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Response Templates</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CORS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Virtual Hosts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Failover</td><td>✅</td><td>✅</td><td>⚠️ Depends on use case</td></tr><tr><td>Health Check</td><td>✅</td><td>✅</td><td>🚫</td></tr><tr><td>Health Check Dashboard</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Improved Policy Studio</td><td>🚫</td><td>✅</td><td>✅</td></tr><tr><td>Debug Mode</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Plans</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Subscriptions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Messages / Broadcasts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Markdown</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - OAS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsyncAPI</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsciiDoc</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Home Page</td><td>✅</td><td>⚠️ Set via API</td><td>✅</td></tr><tr><td>Documentation - Metadata</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Translations</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Group Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Role Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Swagger vs. Redoc Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Try It Configuration</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Nested Folder Creation</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Terms &#x26; Conditions on a Plan</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Sharding Tags</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Deployment History</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Rollback</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Compare API to Previous Versions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Analytics</td><td>✅</td><td>⚠️ WIP</td><td>⚠️ WIP</td></tr><tr><td>Custom Dashboards</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Path Mappings</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>API Quality</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>API Review</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as GKO spec</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Import API from Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-## The new Gravitee API Developer Portal (Tech preview) (EE only)
+## The new Gravitee API Developer Portal (EE only)
 
-We’ve also released a new tech preview version of our advanced Gravitee Developer Portal. This new Developer Portal offers the following features and functionality:
+We’ve also released a new version of our advanced Gravitee Developer Portal. This new Developer Portal offers the following features and functionality:
 
 * Updated UX and new UI components
 * Catalog page has pagination and infinite scroll
@@ -169,7 +169,7 @@ We’ve also released a new tech preview version of our advanced Gravitee Develo
 {% hint style="info" %}
 **Limitations**
 
-This Developer Portal is only a tech preview. For production use cases, we still recommend using the legacy Developer Portal. If you’d like to try out the new Developer Portal, we recommend that:
+For production use cases, we still recommend using the legacy Developer Portal. If you’d like to try out the new Developer Portal, we recommend that:
 
 * Customers work directly with their CSM or CSA
 * Non-customers book some time to chat with the [Gravitee Solutions Engineering team for a demo and/or free POC](https://www.gravitee.io/demo)
@@ -217,7 +217,7 @@ In Gravitee, the Dead letter queue (DLQ) functionality enables you to define a q
 
 ## Wrapping up
 
-Between Federated API Management, new message broker support, and a brand new Developer Portal, Gravitee API Management 4.4 is one of the largest, most exciting releases that we’ve pushed in a while. To learn more about the new functionality, please refer to the linked documentation throughout these release notes, and, if interested in any of the tech preview functionality, please work directly with your CSM (if you’re a Gravitee customer) or [book a demo with an Engineer](https://www.gravitee.io/demo) if you are not yet a Gravitee Enterprise user.
+Between Federated API Management, new message broker support, and a brand new Developer Portal, Gravitee API Management 4.4 is one of the largest, most exciting releases that we’ve pushed in a while. To learn more about the new functionality, please refer to the linked documentation throughout these release notes, and, if interested in the new Developer Portal, please work directly with your CSM (if you’re a Gravitee customer) or [book a demo with an Engineer](https://www.gravitee.io/demo) if you are not yet a Gravitee Enterprise user.
 
 \
 \\

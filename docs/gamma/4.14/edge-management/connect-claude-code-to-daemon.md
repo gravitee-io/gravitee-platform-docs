@@ -14,7 +14,7 @@ This page explains why, and how to confirm that interception works.
 
 ## Before you start
 
-* The Edge Daemon is deployed and running on the device. See [Configure Iru to deploy the Edge Daemon](connect/configure-kandji-daemon.md).
+* The Edge Daemon is deployed and running on the device. See [Configure Iru to deploy the Edge Daemon](connect/configure-kandji-daemon.md) for macOS, or [Install the Edge Daemon on Windows](connect/install-edge-daemon-on-windows.md).
 * Claude Code is installed on the same device.
 * **Claude Code** is configured as an intercepted agent, with a target API on its route. See [Configure interception](connect/configure-edge-management.md).
 

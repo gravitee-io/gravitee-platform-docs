@@ -10,12 +10,12 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## Highlights
 
-* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page, and MCP Proxies an **API Score** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
 * **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, configure the resources of API Products, and secure API Products with OAuth2 plans.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
-* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
+* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, edit gateway addresses after the guided setup, and install the Edge Daemon on Windows devices.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
-* **Platform Management**: Encrypt the sensitive values of environment dictionaries, and renew the shared API key of an application with a value you choose.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries, renew the shared API key of an application with a value you choose, and label, describe, and hide the additional and custom metrics of an environment.
 
 ## Breaking changes and deprecations
 
@@ -31,6 +31,18 @@ From 4.14.0, the Gateway reporter and the Management API verify the certificate 
 
 From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 
+#### **COUNT on the LLM token and cost metrics counts requests**
+
+From 4.14.0, **COUNT** on the six token and cost metrics of LLM traffic gives the number of requests that carry the value, and **SUM** gives the total. In 4.13, **COUNT** gave the total. A custom dashboard widget that reads **COUNT** on one of these metrics shows a number of requests after the upgrade, so select **SUM** under **Measure** to keep the total. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#count-on-the-llm-token-and-cost-metrics-counts-requests).
+
+#### **AVG, MIN, MAX, and the percentiles leave out the requests without a value**
+
+From 4.14.0, **AVG**, **MIN**, **MAX**, and the percentiles of a built-in metric leave out the requests that don't carry its value. In 4.13, they counted those requests as `0`. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#avg-min-max-and-the-percentiles-leave-out-the-requests-without-a-value).
+
+#### **HTTP Errors and Edge Heartbeat Count now count only their own events**
+
+From 4.14.0, **COUNT** on **HTTP Errors** counts the requests whose status is from 400 to 599, and **COUNT** on **Edge Heartbeat Count** counts heartbeat events only. In 4.13, they counted every request and every Edge Management event. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#http-errors-and-edge-heartbeat-count-now-count-only-their-own-events).
+
 ## New features
 
 The 4.14 release adds the following capabilities.
@@ -40,7 +52,7 @@ The 4.14 release adds the following capabilities.
 Agent Management adds the following in 4.14:
 
 * **LLM Proxies**: the **AWS Lambda** and **Data Cache Policy** policies.
-* **MCP Proxies**: alerts, and HTTP/2 fields, which Catalog MCP servers also gain.
+* **MCP Proxies**: alerts, an **API Score** page, and HTTP/2 fields, which Catalog MCP servers also gain.
 * **A2A Proxies**: a **CORS** page for calls from web pages on other origins.
 * **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
 * **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
@@ -61,6 +73,13 @@ Agent Management adds the following in 4.14:
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### API Score for MCP Proxies
+
+* A new **API Score** page in the **General** group of an MCP Proxy rates the proxy against the rulesets of its environment, and lists the findings of each asset by severity. The page appears when API Score is turned on for the environment.
+* **Evaluate** starts an evaluation, and the page shows that it's running until it ends. A successful evaluation replaces the previous result. An evaluation requires an installation connected to Gravitee Cloud.
+* On the **API Score** page of Platform Management, the name of an MCP Proxy and **View API-level Score Details** open the **API Score** page of the MCP Proxy in Agent Management.
+* See [Review the MCP Proxy API Score](../agent-management/build/review-the-mcp-proxy-api-score.md).
 
 #### HTTP/2 fields and the API key header of MCP Proxies
 
@@ -197,6 +216,7 @@ Edge Management adds the following in 4.14:
 * **Daemon authentication**: Edge Daemons identify themselves to the Edge Reactor keyless, with mTLS and the certificates of your fleet, or both.
 * **OAuth2 plans**: the routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
 * **Gateway addresses**: the guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
+* **Windows devices**: the **Daemon deployment** page has a **Windows** tab, with the download of the Edge Daemon for Windows and its install command.
 
 #### Daemon authentication
 
@@ -221,8 +241,15 @@ Edge Management adds the following in 4.14:
 * The **Gateway** page now saves a change to either address with **Save & Deploy**. A change only applies to the daemons installed after it, and a warning under the changed field says so. Daemons already installed keep the addresses they were installed with.
 * When the installation proposes an address other than the one in the field, the **Gateway** page shows it under the field, with where it comes from.
 * The **Reactor URL** that the installation proposes is the address that you set for the environment, or else the address that you set for every environment, which the Helm chart takes from its Edge ingress. See [Propose the Reactor URL to Edge Management](../edge-management/connect/configure-edge-ingress.md#propose-the-reactor-url-to-edge-management).
-* The Kandji script of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
+* The install command of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
 * See [Change the gateway addresses](../edge-management/connect/set-up-edge-management.md#change-the-gateway-addresses).
+
+#### Edge Daemon on Windows
+
+* The **Daemon deployment** page has a **macOS** tab and a **Windows** tab. Each tab has the download of the daemon for each architecture of its platform, the install command, and the diagnostic and uninstall commands. The Windows download comes in **x64 (amd64)** and **Arm (arm64)**.
+* On Windows, the install command runs from PowerShell as Administrator, or as a post-install script that your MDM runs as SYSTEM. The installer registers the daemon as a Windows service that starts at boot.
+* The page no longer names Kandji. Run the install command by hand, or as the post-install script of your MDM.
+* See [Install the Edge Daemon on Windows](../edge-management/connect/install-edge-daemon-on-windows.md).
 
 #### Changes to the Edge Reactor
 
@@ -280,6 +307,7 @@ Platform Management adds the following in 4.14:
 
 * **Dictionaries**: encryption of the sensitive values of environment dictionaries.
 * **Applications**: a **Shared API Keys** page, which renews the shared API key of an application with a value you choose.
+* **Additional metrics**: a **Metrics configuration** page for the values that a policy or the gateway attaches to requests and for the values that the Assign metrics policy writes, which the logs and dashboards of API Management and Agent Management now show.
 
 #### Encrypted dictionary properties
 
@@ -294,3 +322,13 @@ Platform Management adds the following in 4.14:
 * When **Allow custom API Key** is turned on, the **Renew API Key** dialog has a **Custom API Key** field for the value of the new key. A value of an earlier key of the application, even a revoked or expired one, makes that key valid again.
 * The feature also ships in APIM 4.13.8 and 4.12.30.
 * See [Renew the shared API key](manage-applications.md#renew-the-shared-api-key).
+
+#### Additional metrics
+
+* A new **Metrics configuration** page, in the **System & Security** group of the **Environment** section, lists the additional metrics of the environment, the values that a policy or the gateway attaches to requests. It sets the label, description, and unit of each one, and whether the filter, column, and widget-editor lists offer it. It also declares a metric before any request carries it.
+* API Management and Agent Management have a new **Settings** page in their **Observability** group, which shows the same list, read-only.
+* On the **Logs** pages of API Management and Agent Management, the detail of a log has an **Additional metrics** section, **View** adds an additional metric as a column of the table, and **Filter by** offers additional metrics, including one that it doesn't list, by its key.
+* In the widget editor of a custom dashboard, **Metric** and **Group by** offer additional metrics, including one that they don't list, by its key.
+* Custom metrics, the values that the Assign metrics policy writes, are listed on the same page with a **Personal data** badge, and take a label, a description, and a visibility setting. The **Logs** pages show them in a **Custom** section of the log detail and under **Custom** in **View** and **Filter by**, and **Group by** of the widget editor offers them.
+* The value suggestions of a text filter list the values that start with what you type, whatever the case.
+* See [Configure additional metrics](configure-additional-metrics.md), [Read additional and custom metrics](../api-management/observe/view-api-logs.md#read-additional-and-custom-metrics), and [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).

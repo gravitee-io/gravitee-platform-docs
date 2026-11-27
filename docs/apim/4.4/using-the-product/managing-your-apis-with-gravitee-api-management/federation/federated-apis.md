@@ -81,7 +81,7 @@ Once the plan is created in Gravitee, you will have limited ability to edit the 
 
 To see and edit your federated API's plans, go to the **Consumers** tab for your federated API.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt="The Plans tab of a tech preview API, with the PUBLISHED filter selected and one published API key plan listed."><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt="The Plans tab of a federated API, with the PUBLISHED filter selected and one published API key plan listed."><figcaption></figcaption></figure>
 
 Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
 

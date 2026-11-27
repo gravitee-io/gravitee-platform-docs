@@ -9,7 +9,7 @@ description: What Edge Management does, how the Edge Daemon captures the AI traf
 Edge Management puts the Gravitee gateway between the AI coding agents that run on your managed devices and the AI providers they call. An Edge Daemon installed on each device intercepts the agents you choose and forwards their traffic to a target API on the gateway, where your policies, quotas, and analytics apply. The same daemon reports the AI providers that a device reaches directly, without the gateway.
 
 {% hint style="warning" %}
-**Edge Management is a preview feature, and it isn't production-ready.** It's under active development. By default, the Edge Reactor listener is plain HTTP, and keyless is on in daemon authentication. The traffic between the daemons and the Edge Reactor is then neither encrypted by the reactor nor authenticated. Until you secure it, don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md) and [Configure daemon authentication](../connect/configure-daemon-authentication.md).
+**Edge Management isn't production-ready.** It's under active development. By default, the Edge Reactor listener is plain HTTP, and keyless is on in daemon authentication. The traffic between the daemons and the Edge Reactor is then neither encrypted by the reactor nor authenticated. Until you secure it, don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md) and [Configure daemon authentication](../connect/configure-daemon-authentication.md).
 {% endhint %}
 
 ## How the traffic flows
@@ -73,10 +73,10 @@ One gateway serves the Edge Management configuration of several environments, an
 
 ## Compatibility
 
-The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supports interception for Claude Code through the Anthropic API.
+The Edge Daemon is available for macOS, on Apple Silicon and Intel, and for Windows, on x64 and Arm. It supports interception for Claude Code through the Anthropic API.
 
 ## Next steps
 
 * **Set up the environment.** Create the configuration through the guided setup. See [Set up Edge Management](../connect/set-up-edge-management.md).
-* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md). For Windows devices, see [Install the Edge Daemon on Windows](../connect/install-edge-daemon-on-windows.md).
 * **Connect Claude Code.** Check what, if anything, you have to do on the device. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

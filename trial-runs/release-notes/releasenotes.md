@@ -5,7 +5,7 @@
 ### Highlights
 
 * The new Developer Portal supports Gravitee Markdown, which extends standard Markdown with dynamic UI components such as blocks, buttons, cards, and grids.
-* The new Developer Portal (tech preview) lets administrators customize top-level navigation by creating pages, folders, and links in portal settings.
+* The new Developer Portal lets administrators customize top-level navigation by creating pages, folders, and links in portal settings.
 * APIM 4.10 introduces an AI Token Rate Limit policy for LLM proxy APIs that enforces a maximum total of inbound and outbound tokens over a configurable time window.
 * Running the prompt guard rails capability requires ONNX runtime support in the gateway container.
 * APIM can enforce prompt guard rails on LLM Proxy APIs using an AI text-classification model to evaluate incoming prompts for policy violations.
@@ -24,11 +24,11 @@
 **Add new GMD customization to New Dev Portal docs**
 
 {% hint style="warning" %}
-The new Developer Portal (tech preview) lets administrators customize top-level navigation by creating pages, folders, and links in portal settings.
+The new Developer Portal lets administrators customize top-level navigation by creating pages, folders, and links in portal settings.
 {% endhint %}
 
 * The new Developer Portal supports Gravitee Markdown, which extends standard Markdown with dynamic UI components such as blocks, buttons, cards, and grids. Buttons support multiple appearances and can link to internal portal routes or external URLs with configurable targets, and cards support structured content with theming and custom styling inputs. This enables richer documentation layouts and interactive content without custom front-end work.
-* The new Developer Portal (tech preview) lets administrators customize top-level navigation by creating pages, folders, and links in portal settings. Pages and folders can optionally require authentication, allowing you to restrict documentation sections to signed-in users while keeping other items public. This enables a more tailored portal structure and access control without custom development.
+* The new Developer Portal lets administrators customize top-level navigation by creating pages, folders, and links in portal settings. Pages and folders can optionally require authentication, allowing you to restrict documentation sections to signed-in users while keeping other items public. This enables a more tailored portal structure and access control without custom development.
 
 **Add token rate limit policy to the docs**
 

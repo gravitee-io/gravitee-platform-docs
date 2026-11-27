@@ -44,7 +44,7 @@ The Gamma console presents seven application modules. The following table descri
 | **Edge Management** | AI traffic that leaves your managed devices | [Edge Management overview](../edge-management/get-started/edge-management-overview.md) |
 | **Platform Management** | Installation, organization and environment settings, users, groups, and shared assets | [Install](install/README.md) |
 
-If you are evaluating Gamma, start with the module overview that matches the traffic you need to govern. Edge Management is a preview feature, and it isn't production-ready.
+If you are evaluating Gamma, start with the module overview that matches the traffic you need to govern. Edge Management isn't production-ready.
 
 ## Platform components
 
