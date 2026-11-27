@@ -52,10 +52,6 @@ For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/
 
 ## Developer Portal enhancements
 
-{% hint style="info" %}
-The new developer portal is in tech preview. Tech preview features are fully supported for Gravitee’s enterprise customers. The Tech Preview label indicates that the feature is under development, and further changes may occur in an upcoming release.
-{% endhint %}
-
 You can now customize the new Gravitee developer portal with ease, matching your branding and fonts by means of a dedicated application.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc2S2cGIxguBfgooGccff4MpbgfKO9YjOGu6T283bqREzXi4faaMICWgAZNvrxpHFnx7SmA1f0auY5WVpaiawCugz4ZRkkeF6sdfqvG30evbGGipak-734EEBco3yZBUsyrbwHl05xdW6dEM-ozL7dBy74?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
@@ -98,15 +94,13 @@ With 4.5, we’re excited to announce that federation is now generally available
 * Enhancements to API discovery - when running the discovery process for an integration, you see a preview of all the APIs that were discovered and manage updates to existing ingested APIs.
 * Improvements to the AWS, Solace and Apigee providers - additional metadata is ingested into Gravitee.
 
-## API Score preview
+## API Score
 
 API Score is a new automated governance feature that will provide a quality score for each of your APIs based on your company's quality, security, and consistency criteria. Whether your APIs are deployed to Gravitee, synchronous or asynchronous, or discovered from external providers like AWS, Azure, Apigee, IBM, Solace or Confluent, API score will provide you with a dashboard that provides instant feedback about the level of conformance of APIs across your environment.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdLcbQjWdXWbsq2Dz0LfM9rFj0l52jR1ij1Ealve34-sSzgE76PU9Dj_doD_MzAxNGM6s2aP-6pbgJrzFLXZ1Fod44TyUUT02Yq4xnXLC5k9ynrrhugRGLek-y9YnwvQwnRDIy23N9Z1Y8IqEr1Qr41cNRm?key=jMTPU2NFoSjiJjsY4xlu6w" alt=""><figcaption></figcaption></figure>
 
 You can specify your own custom rules that will be used to evaluate the OAS and AsyncAPI specifications attached to your APIs in Gravitee.
-
-Because this feature is a technical preview, we asked that you reach out to the Gravitee team in order to activate it on your environment.
 
 {% hint style="info" %}
 API Score is a new service that requires a Gravitee Cloud account and an APIM instance that is connected to Gravitee Cloud.

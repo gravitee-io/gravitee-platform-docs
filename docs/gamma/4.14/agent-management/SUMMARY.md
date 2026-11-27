@@ -80,6 +80,7 @@
     * [Duplicate an MCP Proxy](build/duplicate-an-mcp-proxy.md)
     * [Configure your MCP proxy](build/configure-your-mcp/README.md)
       * [General](build/mcp-proxies/general/README.md)
+        * [Review the MCP Proxy API Score](build/review-the-mcp-proxy-api-score.md)
       * [Design](build/mcp-proxies/design/README.md)
         * [Configure the MCP Proxy entrypoint](build/configure-mcp-proxy-entrypoint.md)
         * [Configure MCP specification versions](build/configure-your-mcp/configure-mcp-specification-versions.md)

@@ -118,3 +118,6 @@ create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
 create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md
 .gitbook/assets/apim-data-logging-masking-llm-proxy-policies.png
 .gitbook/assets/apim-data-logging-masking-mcp-proxy-policies.png
+# Top Paths grouped by path mapping on v4 APIs (OBS-129)
+analyze-and-monitor-apis/dashboards/api-proxy-dashboard.md
+.gitbook/assets/apim-v4-api-traffic-top-paths-path-mapping.png

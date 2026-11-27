@@ -32,6 +32,22 @@ From 4.14.0, undeploying a Cluster, and so deleting it, is refused while a start
 
 From 4.14.0, starting or deploying a Kafka Service is refused while a Cluster that it uses isn't deployed, or the deployed Cluster doesn't have its connection. For a Kafka Service bound to a Virtual Cluster, the Clusters and connections of the backends are checked too. Deploying a Virtual Cluster is refused while the Cluster of one of its backends isn't deployed, or doesn't have the connection of the backend. Saving a Kafka Service whose endpoint you point at such a Cluster or connection is refused too. In 4.13, only the Virtual Cluster of a Kafka Service was checked. Deploy the Cluster, with every connection that your APIs use, before you start them. See [Manage a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#deploy-and-undeploy).
 
+#### Observability
+
+**COUNT on the LLM token and cost metrics counts requests**
+
+From 4.14.0, **COUNT** on the six token and cost metrics of LLM traffic, **Sent token count**, **Received token count**, **Total token count**, **Sent token cost**, **Received token cost**, and **Total token cost**, gives the number of requests that carry the value, and **SUM** gives the total. On **Total token count** and **Total token cost**, **COUNT** counts the requests that carry at least one of their two values. In 4.13, **COUNT** gave the total. A new widget on one of these metrics starts on **SUM**.
+
+A custom dashboard widget that reads **COUNT** on one of these metrics shows a number of requests after the upgrade. Before you upgrade, list the widgets of your custom dashboards that read **COUNT** on these metrics. After the upgrade, select **SUM** under **Measure** in each of them. See [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).
+
+**AVG, MIN, MAX, and the percentiles leave out the requests without a value**
+
+From 4.14.0, **AVG**, **MIN**, **MAX**, and the percentiles of a built-in metric leave out the requests that don't carry its value, as they do for an additional metric. In 4.13, they counted those requests as `0`. A widget that reads one of these measures shows different values after the upgrade when some requests don't carry the metric, and no value when none does.
+
+**HTTP Errors and Edge Heartbeat Count now count only their own events**
+
+From 4.14.0, **COUNT** on **HTTP Errors** counts the requests whose status is from 400 to 599, and **COUNT** on **Edge Heartbeat Count** counts heartbeat events only. In 4.13, they counted every request and every Edge Management event. A widget on one of these metrics shows lower values after the upgrade. A widget on **HTTP Errors** that already filters on the 4XX and 5XX status groups shows the same values as before.
+
 ### 4.13.0
 
 #### API Management

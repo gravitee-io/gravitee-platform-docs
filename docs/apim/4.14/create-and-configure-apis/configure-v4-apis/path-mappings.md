@@ -100,8 +100,13 @@ An OpenAPI import and a migration from v2 also set the path mappings of a v4 API
 
 ## Verification
 
-To verify path mappings are working as expected, follow these steps:
+To verify path mappings are working as expected on an HTTP proxy or LLM proxy API, follow these steps:
 
 1. Deploy the API.
 2. Send a request whose path matches a path mapping, for example `/orders/42` after the API's context-path for the path mapping `/orders/:orderId`.
-3. Look up the request in your analytics data. It carries `/orders/:orderId` as its mapped path, for example in the `mapped-path` field of the request's v4 metrics document in Elasticsearch.
+3. Click **API Traffic**.
+4.  In the **Top Paths** table, find `/orders/:orderId` under **Path mapping**. The request is counted in its **Hits**.
+
+    <figure><img src="../../.gitbook/assets/apim-v4-api-traffic-top-paths-path-mapping.png" alt="A Top Paths panel with the Path mapping and Hits columns, listing /orders/:orderId with nine hits, /orders with four, and /customers/:customerId with three."><figcaption><p>Top Paths groups the hits by path mapping</p></figcaption></figure>
+
+The **API Traffic** page of a message, MCP proxy, or A2A proxy API has no **Top Paths** table grouped by path mapping. For these APIs, look up the request in your analytics data. It carries `/orders/:orderId` as its mapped path, for example in the `mapped-path` field of the request's v4 metrics document in Elasticsearch.

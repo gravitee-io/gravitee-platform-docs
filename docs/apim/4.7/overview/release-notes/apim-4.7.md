@@ -16,7 +16,7 @@ In Gravitee 4.7, we have released the following improvements and enhancements:
 * The addition of secret manager support for the Solace endpoint.
 * The addition of secret manager support for the LDAP resource.
 * Tenant support is extended to v4 APIs.
-* Updates to the API Score tech preview.
+* Updates to API Score.
 * Improvements to the import logic for v2 and v4 APIs.
 * Added support for custom headers in the IP Filtering and GeoIP Filtering policies.
 * Added support for v4 APIs to the AWS Lambda policy.
@@ -94,9 +94,9 @@ With Gravitee 4.7, we have improved the capabilities of the IBM Connect agent. W
 
 With Gravitee 4.7, you can now ingest APIs from Mulesoft API Management to centrally catalog Mulesoft APIs alongside all of your other Gravitee and Federated APIs. The Mulesoft federation agent discovers Mulesoft APIs that are published to Mulesoft Exchange. Subscription support is coming soon.
 
-## Updates to the API Score tech preview
+## Updates to API Score
 
-With the Gravitee 4.7 release, we’ve continued to improve the API Score technical preview. API Score now supports all Gravitee API types. When you evaluate an API’s score, any relevant piece of information about your API’s design and settings are sent to the scoring service. This includes the Gravitee API definition itself, which contains information like the API's plans, policies, entrypoints, endpoints, labels, categories, etc. Any OpenAPI or AsyncAPI doc pages attached to your APIs are also used for scoring. You can write custom rulesets against any of these assets, including support for custom JavaScript functions.
+With the Gravitee 4.7 release, we’ve continued to improve API Score. API Score now supports all Gravitee API types. When you evaluate an API’s score, any relevant piece of information about your API’s design and settings are sent to the scoring service. This includes the Gravitee API definition itself, which contains information like the API's plans, policies, entrypoints, endpoints, labels, categories, etc. Any OpenAPI or AsyncAPI doc pages attached to your APIs are also used for scoring. You can write custom rulesets against any of these assets, including support for custom JavaScript functions.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfVRMUSlED01ci-1f9JV7Og9T-8cNWMv8fFkfJp9Jugbz9a79TwlSZCqF4GOd2nZUG7QwnNriUDN4U2DhDW3-1Kid4lDuBAk828r912hVaFYYTr2N6Lqw2w9wwSDcZxIcpuGe3SoQ?key=kGCzwXf48ynu65fxkJ8hb2GH" alt=""><figcaption></figcaption></figure>
 

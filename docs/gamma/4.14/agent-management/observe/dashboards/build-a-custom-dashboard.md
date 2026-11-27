@@ -127,6 +127,12 @@ The **Data** tab changes with the visualization type.
 
 **Measure** offers only the aggregations the selected metric supports, and changing the metric moves the measure to a supported one. **Group by** offers API, HTTP method, HTTP status, and HTTP status group. LLM traffic adds LLM provider and LLM model, and MCP traffic adds MCP method, MCP tool, MCP prompt, and MCP resource.
 
+On the token and cost metrics of LLM traffic, **SUM** gives the total, and **COUNT** gives the number of requests that carry the value.
+
+**Metric** and **Group by** also offer the additional metrics of the environment, the values that a policy or the gateway attaches to requests, with the labels and units set on the **Metrics configuration** page. **Metric** offers the ones that hold numbers, and **Group by** the ones that hold text or true or false values. To use one that isn't listed, type its key, starting with its type, such as `long_failover_count`. Then select the option that starts with **Use**.
+
+**Group by** also offers the custom metrics of the environment, the values that the Assign metrics policy writes, and accepts one by its key, such as `custom.fraud-tier`. A custom metric holds text, so **Metric** doesn't offer it. See [Configure additional metrics](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-additional-metrics).
+
 Selecting a metric or dimension that belongs to one API type adds an **API Type** filter for that type to the widget. The filter is an ordinary widget filter, visible on the **Filters** tab, so widen it there when you mean to.
 
 #### Set display options on the Display tab

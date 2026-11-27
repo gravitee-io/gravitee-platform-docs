@@ -36,7 +36,7 @@ The **Overview** tab brings together the latest evaluation of each API in the en
 
 A score is green from 80%, amber from 40%, and red below 40%.
 
-To open the **API Score** page of one API, click the API's name, or select **View API-level Score Details** from the menu at the end of its row.
+To open the **API Score** page of one API, click the API's name, or select **View API-level Score Details** from the menu at the end of its row. For an MCP Proxy, that page opens in Agent Management. See [Review the MCP Proxy API Score](../agent-management/build/review-the-mcp-proxy-api-score.md).
 
 A score changes only when an evaluation of that API succeeds. A failed evaluation keeps the previous score. Changing the rulesets or the functions doesn't change any score until each API is evaluated again.
 
