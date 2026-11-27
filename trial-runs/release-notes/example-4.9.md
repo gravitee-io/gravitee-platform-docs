@@ -58,10 +58,6 @@
 
 #### New Developer Portal homepage customization
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
-
 * Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 
 #### Expression Language (EL) assistant
@@ -137,9 +133,5 @@ This feature is in tech preview.
 * Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
 
 #### Terraform resources
-
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 * The Gravitee Terraform provider now supports Application and Subscription resources.

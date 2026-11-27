@@ -5,7 +5,7 @@ description: MCP Servers give Access Management 4.10 a standard way to expose op
 # MCP Servers
 
 {% hint style="danger" %}
-**Preview Feature**: MCP Server support is currently in preview. Features and APIs may change in future releases. **This functionality is not production-ready and should be used with caution.**
+Features and APIs for MCP Server support may change in future releases. **This functionality is not production-ready and should be used with caution.**
 {% endhint %}
 
 ## Overview
