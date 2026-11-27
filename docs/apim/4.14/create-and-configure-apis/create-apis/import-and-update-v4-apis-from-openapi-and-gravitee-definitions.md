@@ -29,7 +29,7 @@ APIs can be imported from the following two sources:
 
 ### Update Behavior
 
-The import fully overwrites the API configuration. The API ID, deployment state, and origin metadata are preserved. Plans present in the database but absent from the import are deleted. Pages and flows are matched by identifier or key, and then they are updated in place. Unmatched items are removed. For OpenAPI imports that contain no Gravitee-specific properties, existing custom properties are preserved. The update is atomic, meaning it is either fully applied or rejected with validation errors.
+The import fully overwrites the API configuration. The API ID, deployment state, and origin metadata are preserved. Plans present in the database but absent from the import are deleted. Pages and flows are matched by identifier or key, and then they are updated in place. Unmatched items are removed. For OpenAPI imports that contain no Gravitee-specific properties, existing custom properties are preserved. For OpenAPI imports, the API's path mappings are preserved unless **Create the path mapping for analytics** is enabled. The update is atomic, meaning it is either fully applied or rejected with validation errors.
 
 ## Prerequisites
 
@@ -59,6 +59,7 @@ To update an existing v4 API, complete the following steps:
     <figure><img src="../../.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-05.png" alt="Update API dialog showing local file option selected with kafka-1.json file uploaded"><figcaption></figcaption></figure>
 4. For OpenAPI imports, configure the following options:
     * Enable **Create documentation page from spec** to generate a Documentation page from the imported specification.
+    * Enable **Create the path mapping for analytics** to replace the API's path mappings with the paths of the specification. For more information, see [Configure path mappings](../configure-v4-apis/path-mappings.md).
     * Enable **Add OpenAPI Specification Validation policy** to attach the OAS Validation policy to generated flows. This option is enabled by default if the policy is installed.
 5. Review the selected format, source, and options.
 
@@ -90,6 +91,7 @@ The request body is an `ImportSwaggerDescriptor` object with the following prope
 | `payload` | OpenAPI specification content, which is a JSON or YAML format | string |
 | `withDocumentation` | Create a documentation page from the specification | boolean |
 | `withOASValidationPolicy` | Add an OpenAPI Specification Validation policy to generated flows | boolean |
+| `withPathMapping` | Replace the API's path mappings with the paths of the specification. When `false`, the API keeps its path mappings | boolean |
 | `withPolicies` | Policy visitor IDs to apply during import | array of strings |
 | `withPolicyPaths` | Create a flow for each path declared in the OpenAPI specification | boolean |
 
