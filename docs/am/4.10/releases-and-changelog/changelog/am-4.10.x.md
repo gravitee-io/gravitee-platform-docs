@@ -724,7 +724,7 @@ Access Management now supports Certificate-Based Authentication (CBA) as a prima
 #### MCP Server Integration
 
 {% hint style="warning" %}
-**Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready and you should use the feature with caution.
+Features and APIs for MCP Server support may change in future releases. This functionality is not production-ready and you should use the feature with caution.
 {% endhint %}
 
 We are taking the first steps toward making **Model Context Protocol** (MCP) a first-class citizen within Access Management. This feature introduces a new application type designed specifically for MCP Resource Servers, enabling secure, standardized communication between AI models and your data tools.
@@ -732,7 +732,7 @@ We are taking the first steps toward making **Model Context Protocol** (MCP) a f
 #### Authorization Engine (OpenFGA & AuthZen)
 
 {% hint style="warning" %}
-**Tech Preview:** The OpenFGA Authorization Engine is in tech preview. Features and APIs may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.
+Features and APIs for the OpenFGA Authorization Engine may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.
 
 To get access, reach out to your Gravitee customer contact, or [book a demo](https://www.gravitee.io/demo).
 {% endhint %}

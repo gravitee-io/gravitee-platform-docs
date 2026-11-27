@@ -56,8 +56,6 @@ metaLinks:
   Historical analytics are not available after migration, and analytics are reset for the migrated API. Migration is reversible, but users should plan for analytics gaps until continuity is delivered in a future release.
 *   **New Developer Portal homepage customization**
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
-
     Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 * **Expression Language (EL) assistant**\
   Introduces the Gravitee Expression Language (EL) assistant. This assistant converts prompts into expression language that can be used in any field that supports EL.
@@ -100,7 +98,5 @@ metaLinks:
 * **Secret renewal**\
   Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
 *   **Terraform resources**
-
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
 
     The Gravitee Terraform provider now supports Application and Subscription resources.

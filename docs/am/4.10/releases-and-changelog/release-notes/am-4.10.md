@@ -25,7 +25,7 @@ Access Management supports [Certificate-Based Authentication](../../guides/login
 ### MCP Server Integration
 
 {% hint style="warning" %}
-**Tech Preview:** MCP Server support is currently in tech preview. Features and APIs might change in future releases. This functionality is not production-ready and you should use this feature with caution.
+Features and APIs for MCP Server support might change in future releases. This functionality is not production-ready and you should use this feature with caution.
 {% endhint %}
 
 Access Management is now taking its first steps toward becoming a first-class citizen in the MCP ecosystem. This feature allows for secure and standardized communication between AI models and your internal tools.
@@ -36,7 +36,7 @@ Access Management is now taking its first steps toward becoming a first-class ci
 ### Authorization Engine (OpenFGA & AuthZen)
 
 {% hint style="warning" %}
-**Tech Preview:** The OpenFGA Authorization Engine is currently in tech preview. Features and APIs may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.&#x20;
+Features and APIs for the OpenFGA Authorization Engine may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.&#x20;
 
 To get access, reach out to your Gravitee customer contact, or [book a demo](https://www.gravitee.io/demo).
 {% endhint %}
