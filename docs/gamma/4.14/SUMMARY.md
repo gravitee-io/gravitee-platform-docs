@@ -268,7 +268,7 @@
   * [Manage a registered agent](agent-management/import/manage-a-registered-agent.md)
   * [Give an agent an identity](agent-management/import/give-an-agent-an-identity.md)
   * [Route an agent through an A2A Proxy](agent-management/import/route-an-agent-through-an-a2a-proxy.md)
-  * [Subscribe an agent to an LLM Proxy](agent-management/import/subscribe-an-agent-to-an-llm-proxy.md)
+  * [Read the models an agent uses](agent-management/import/subscribe-an-agent-to-an-llm-proxy.md)
   * [Subscribe an agent to an MCP Proxy](agent-management/import/subscribe-an-agent-to-an-mcp-proxy.md)
   * [Agent kill switch](agent-management/build/agent-killswitch.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
