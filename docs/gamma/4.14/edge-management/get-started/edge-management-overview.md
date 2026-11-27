@@ -73,10 +73,10 @@ One gateway serves the Edge Management configuration of several environments, an
 
 ## Compatibility
 
-The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supports interception for Claude Code through the Anthropic API.
+The Edge Daemon is available for macOS, on Apple Silicon and Intel, and for Windows, on x64 and Arm. It supports interception for Claude Code through the Anthropic API.
 
 ## Next steps
 
 * **Set up the environment.** Create the configuration through the guided setup. See [Set up Edge Management](../connect/set-up-edge-management.md).
-* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md). For Windows devices, see [Install the Edge Daemon on Windows](../connect/install-edge-daemon-on-windows.md).
 * **Connect Claude Code.** Check what, if anything, you have to do on the device. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).
