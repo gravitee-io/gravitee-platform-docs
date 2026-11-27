@@ -61,6 +61,10 @@ You can view the following metrics for your V4 proxy API:
 *   **Top Paths.** This shows which of your API paths have the most hits.
 
     <figure><img src="../../.gitbook/assets/1A6A8BC2-7950-4C8B-8143-16538D87186B_1_201_a (1).jpeg" alt="A Top Paths panel, showing a single unnamed path with fifteen hits."><figcaption></figcaption></figure>
+
+    When the API has path mappings, the table groups the hits by path mapping instead, under **Path mapping**. It counts only the requests that matched a path mapping and that the API's plans accepted. A request that matches no path mapping, or that a plan rejects, for example for a missing API key, isn't counted. Neither is a request the Gateway handled before the path mappings were deployed. For more information, see [Configure path mappings](../../create-and-configure-apis/configure-v4-apis/path-mappings.md).
+
+    <figure><img src="../../.gitbook/assets/apim-v4-api-traffic-top-paths-path-mapping.png" alt="A Top Paths panel with the Path mapping and Hits columns, listing /orders/:orderId with nine hits, /orders with four, and /customers/:customerId with three."><figcaption><p>Top Paths for an API with path mappings</p></figcaption></figure>
 *   **Hits by Application.** This shows the number of hits on your API by application.
 
     <figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-dashboards-4-9-343-1.png" alt="A Hits By Application line chart over roughly a day, flat at zero until a sharp rise to six for an unknown keyless application."><figcaption></figcaption></figure>
