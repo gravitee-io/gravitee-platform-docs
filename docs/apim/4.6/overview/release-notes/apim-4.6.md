@@ -14,7 +14,7 @@ In addition to the Kafka Gateway, we’re excited to release the following featu
 * A [Status Code Transformation policy](../../policies/status-code-transformation.md) to transform status codes for proxy APIs, and the status codes for message APIs via the HTTP POST or GET entrypoint.
 * The addition of the category column in the API list.
 * A Management API endpoint to delete portal media.
-* Improvements to API Score (tech preview).
+* Improvements to API Score.
 
 Read on for more details about the key features in this release.
 
@@ -71,7 +71,7 @@ We’ve made three enhancements to the Webhook entrypoint to make it even more r
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfZfKh6OW4Fdxou9cAiELSjTxhyxHX-kfeTJBZ7aqwVVEO0Z2aVrWHF-AFwS3llOo9kyN2LJNleJ_9q_i7GeBLjeyifp7QX7gdwuAEvraiT1UJyfTmgWO_2Szz0xc9JQHcO4NpZmQ?key=CqXLtJSolCHGsUVprn59ZLlK" alt=""><figcaption><p>Example configuration for retrying a Webhook subscription</p></figcaption></figure>
 
-### API Score improvements (tech preview)
+### API Score improvements
 
 Gravitee 4.6 includes three major updates to the API Score feature for automated governance:
 
