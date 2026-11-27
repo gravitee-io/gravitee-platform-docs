@@ -35,7 +35,7 @@ The table breaks the same range down:
 | -------------- | ---------------------------------------------------- |
 | **Device**     | The device that made the connection.                 |
 | **Provider**   | The AI provider it reached.                          |
-| **Process**    | The process on the device that opened the connection. |
+| **Process**    | The process on the device that opened the connection. On Windows, a process whose name the daemon can't read shows as `unknown (pid N)`, where `N` is its process ID. |
 | **Detections** | How many detections were reported for that row.      |
 
 ## Identify a device
